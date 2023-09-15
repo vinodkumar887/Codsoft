@@ -1,0 +1,61 @@
+
+
+// First, we need something called a "scanner" to get input from you.
+import java.util.Scanner;
+
+// Now, we start our main program.
+public class MarkCalculator {
+    public static void main(String[] args) {
+        // We create a scanner object to get input from you.
+        Scanner scanner = new Scanner(System.in);
+
+        // We ask you how many subjects you have.
+        System.out.print("Enter the number of subjects: ");
+        // You tell us the number of subjects you have.
+        int numSubjects = scanner.nextInt();
+
+        // We'll use an array to store your marks in each subject.
+        int[] marks = new int[numSubjects];
+        // We'll keep track of the total marks.
+        int totalMarks = 0;
+
+        // Now, let's ask for marks in each subject one by one.
+        for (int i = 0; i < numSubjects; i++) {
+            // We tell you which subject's marks we need.
+            System.out.printf("Enter marks obtained in subject %d: ", i + 1);
+            // You tell us your marks in that subject.
+            marks[i] = scanner.nextInt();
+            // We add your marks to the total.
+            totalMarks += marks[i];
+        }
+
+        // We're going to find out your average percentage.
+        // This is how well you did on average across all subjects.
+        // It's like finding out how good you are overall.
+        double averagePercentage = (double) totalMarks / (numSubjects * 100) * 100;
+
+        // Now, we'll give you a grade based on your average percentage.
+        // Grades are like labels to tell you how well you did.
+        char grade;
+        if (averagePercentage >= 90) {
+            grade = 'A'; // Awesome!
+        } else if (averagePercentage >= 75) {
+            grade = 'B'; // Good job!
+        } else if (averagePercentage >= 60) {
+            grade = 'C'; // Not bad!
+        } else if (averagePercentage >= 45) {
+            grade = 'D'; // Keep trying!
+        } else {
+            grade = 'F'; // Don't worry, you can improve!
+        }
+
+        // Finally, we'll show you your results!
+        System.out.println("\nResults:");
+        System.out.println("Total Marks: " + totalMarks);
+        System.out.println("Average Percentage: " + averagePercentage + "%");
+        System.out.println("Grade: " + grade);
+
+        // We're done, so we close the scanner.
+        scanner.close();
+    }
+}
